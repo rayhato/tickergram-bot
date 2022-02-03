@@ -51,16 +51,6 @@ class tickergram:
 
         return tables
 
-        tables111 = get_screener('111')
-        tables161 = get_screener('161')
-        tables121 = get_screener('121')
-
-        consolidatedtables = pd.merge(tables111,tables161,how='outer',left_on='Ticker',right_on='Ticker')
-        consolidatedtables = pd.merge(consolidatedtables,tables121,how='outer',left_on='Ticker',right_on='Ticker')
-
-        consolidatedtables.to_csv('test.csv')
-        csv_file = pd.read_csv('test.csv', usecols = ['Ticker','P/E_x'])
-
     def tg_getme(self):
         r = requests.get(self.TG_API+"/getMe")
         d = r.json()
@@ -649,6 +639,16 @@ class tickergram:
 
     def bot_cmd_screener(self, chat, text, msg_from):
         self.tg_start_action(chat["id"])
+        tables111 = get_screener('111')
+        tables161 = get_screener('161')
+        tables121 = get_screener('121')
+
+        consolidatedtables = pd.merge(tables111,tables161,how='outer',left_on='Ticker',right_on='Ticker')
+        consolidatedtables = pd.merge(consolidatedtables,tables121,how='outer',left_on='Ticker',right_on='Ticker')
+
+        consolidatedtables.to_csv('test.csv')
+        csv_file = pd.read_csv('test.csv', usecols = ['Ticker','P/E_x'])
+
         if csv_file is not None:
             text_msg = self.text_quote_long(csv_file)
         else:
