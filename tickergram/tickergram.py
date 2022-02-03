@@ -645,7 +645,10 @@ class tickergram:
         csv_file = pd.read_csv('test.csv', usecols = ['Ticker','P/E_x'])
 
         if csv_file is not None:
-            text_msg = csv_file
+            text_msg = "```Screener results"
+            for row in csv_file:
+                text_msg += print(row)
+            text_msg += "```"
             self.tg_send_msg_post(text_msg, chat["id"])
         else:
             text_msg = "```\nError\n```"
