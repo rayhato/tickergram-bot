@@ -2,3 +2,6 @@ mplfinance
 redis
 requests
 yfinance
+TA-Lib
+pandas
+requests
