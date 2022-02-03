@@ -424,15 +424,15 @@ class tickergram:
         text_msg = "/help show this help message\n"
         if self.BOT_ENABLED_PASS:
             text_msg += "/auth *\<password\>* authorize chat to use this bot if password is correct\n"
-        text_msg += "/quote *\<symbol\>* get quote\n"
-        text_msg += "/chart *\<symbol\> \[1y,6m,5d\]* get price and volume chart\n"
-        text_msg += "/news *\<symbol\>* get the latest news related to the symbol\n"
-        text_msg += "/watch *list\|add\|del* *\[symbol\]* list, add or remove symbol from your watchlist\n"
+        text_msg += "/quote *\<ticker\>* get quote\n"
+        text_msg += "/chart *\<ticker\> \[1y,6m,5d\]* get price and volume chart\n"
+        text_msg += "/news *\<ticker\>* get the latest news related to the ticker\n"
+        text_msg += "/watch *list\|add\|del* *\[ticker\]* list, add or remove ticker from your watchlist\n"
         text_msg += "/watchlist get an overview of your watchlist\n"
         text_msg += "/watchlistnotify toggle the automatic watchlist notifications on and off\n"
         text_msg += "/overview get an overview of global markets\n"
-        text_msg += "/feargreed get picture of CNN's Fear & Greed Index\n\n"
-        text_msg += u"_Powered by [Tickergram](https://github.com/a0rtega/tickergram-bot)_"
+        text_msg += "/feargreed get picture of CNN's Fear & Greed Index\n"
+        #text_msg += u"_Powered by [Tickergram](https://github.com/a0rtega/tickergram-bot)_"
         self.tg_send_msg_post(text_msg, chat["id"])
 
     def bot_cmd_auth(self, chat, text, msg_from):
@@ -583,8 +583,10 @@ class tickergram:
     def bot_cmd_overview(self, chat, text, msg_from):
         global_tickers = ["#Stocks ETFs", "SPY", "QQQ",
                 "FEZ", "MCHI", "VNQ", "#VIX", "^VIX",
-                "#10Y Bonds", "^TNX", "#Gold", "GC=F",
-                "#Crypto", "BTC-USD", "RUB=X"]
+                "#10Y Bonds", "^TNX", 
+                "#Currency", "RUB=X",
+                "#Gold", "GC=F",
+                "#Crypto", "BTC-USD"]
         self.tg_start_action(chat["id"])
         try:
             text_msg = "```\n"
