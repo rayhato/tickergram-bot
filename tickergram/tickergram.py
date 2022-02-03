@@ -584,7 +584,7 @@ class tickergram:
         global_tickers = ["#Stocks ETFs", "SPY", "QQQ",
                 "FEZ", "MCHI", "VNQ", "#VIX", "^VIX",
                 "#10Y Bonds", "^TNX", "#Gold", "GC=F",
-                "#Crypto", "BTC-USD"]
+                "#Crypto", "BTC-USD", "RUB=X"]
         self.tg_start_action(chat["id"])
         try:
             text_msg = "```\n"

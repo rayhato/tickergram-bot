@@ -6,12 +6,8 @@
 # What's Tickergram?
 
 Tickergram is a Telegram bot to look up quotes, charts, general market sentiment and more. It can be used collaboratively in group chats or by talking directly to it. Users can also keep a watchlist and receive price information notifications.
+Support original author Alberto Ortega here: https://github.com/sponsors/a0rtega
 
-## Supporting Tickergram
-
-I run an instance of Tickergram at [@tickergrambot](https://t.me/tickergrambot) with the `/quote` command openly available. By becoming a sponsor, you will support the project and get **full** access to this bot instance. Check the [sponsor](https://github.com/sponsors/a0rtega) tiers for more information.
-
-Or continue reading and get your own bot running in no time!
 
 ## Bot commands
 
@@ -31,17 +27,18 @@ Or continue reading and get your own bot running in no time!
 
 ## Requirements
 
-- Python 3.9+
+
 - Python requirements, most notably [yfinance](https://github.com/ranaroussi/yfinance), which is used to get financial information. The data provider may change in the future.
 - [Redis](https://redis.io/), used as database to keep both permanent and temporary data (cache).
 - (_Optional_) Firefox is used by bot commands that take website screenshots, such as `/feargreed`.
 
 ## Installation
 
-- Talk to the [@BotFather](https://t.me/botfather) to create a new bot and get its token.
+- Install Python 3.9+
 - Install Redis.
-- Install Tickergram and its dependencies by running `python setup.py install` or `pip install https://github.com/a0rtega/tickergram-bot/archive/refs/heads/main.zip`.
-- Run the bot with the assistance of the self-explanatory help message:
+- Talk to the [@BotFather](https://t.me/botfather) to create a new bot and get its token.
+- Install Tickergram and its dependencies by running `python setup.py install` or `pip install https://github.com/rayhato/tickergram-bot/archive/refs/heads/main.zip`.
+- Run the bot with HTTP API token
 
 ```
 $ tickergram-bot -h
@@ -79,10 +76,6 @@ $ tickergram-bot <token>
 After sending the Telegram message `/start` or `/help` to the bot, it will reply with the supported bot commands.
 
 The bot administrator can notify chat watchlists (when notifications are enabled) with the command `tickergram-notify`. It may be a good idea to run this command on a regular basis (for example at market open) using crontab.
-
-## Author
-
-Alberto Ortega
 
 ## License
 
