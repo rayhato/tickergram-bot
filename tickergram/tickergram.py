@@ -628,16 +628,18 @@ class tickergram:
 
     def bot_cmd_screener(self, chat, text, msg_from):
         
+        headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+
         def get_screener(version):
-            headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
             screen = requests.get(f'https://finviz.com/screener.ashx?v={version}&f=an_recom_holdbetter,cap_midover,fa_eps5years_pos,fa_grossmargin_pos,fa_netmargin_pos,fa_opermargin_pos,fa_sales5years_pos,geo_usa,ta_rsi_os30&ft=4&o=-marketcap&r=1', headers = headers).text
+
             tables = pd.read_html(screen)
             tables = tables[-2]
             tables.columns = tables.iloc[0]
             tables = tables[1:]
+
             return tables
-            
-        self.tg_start_action(chat["id"])
+
         tables111 = get_screener('111')
         tables161 = get_screener('161')
         tables121 = get_screener('121')
