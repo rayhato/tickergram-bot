@@ -11,10 +11,10 @@ Support original author Alberto Ortega here: https://github.com/sponsors/a0rtega
 
 ## Bot commands
 
-- `/quote` **\<symbol\>** get quote
-- `/chart` **\<symbol\> \[1y,6m,5d\]** get price and volume chart
-- `/news` **\<symbol\>** get the latest news related to the symbol
-- `/watch` **list\|add\|del \[symbol\]** list, add or remove symbol from your watchlist
+- `/quote` **\<ticker\>** get quote
+- `/chart` **\<ticker\> \[1y,6m,5d\]** get price and volume chart
+- `/news` **\<ticker\>** get the latest news related to the ticker
+- `/watch` **list\|add\|del \[ticker\]** list, add or remove ticker from your watchlist
 - `/watchlist` get an overview of your watchlist
 - `/watchlistnotify` toggle the automatic watchlist notifications on and off
 - `/overview` get an overview of global markets
@@ -28,7 +28,8 @@ Support original author Alberto Ortega here: https://github.com/sponsors/a0rtega
 ## Requirements
 
 
-- Python requirements, most notably [yfinance](https://github.com/ranaroussi/yfinance), which is used to get financial information. The data provider may change in the future.
+- [yfinance](https://github.com/ranaroussi/yfinance), which is used to get financial information. The data provider may change in the future.
+- [TA-Lib] (https://github.com/mrjbq7/ta-lib), for technical analysis of financial market data.
 - [Redis](https://redis.io/), used as database to keep both permanent and temporary data (cache).
 - (_Optional_) Firefox is used by bot commands that take website screenshots, such as `/feargreed`.
 
